@@ -1,0 +1,291 @@
+inherited ProdutosF: TProdutosF
+  Left = 534
+  Height = 392
+  Top = 258
+  Caption = 'Produtos'
+  ClientHeight = 392
+  Position = poScreenCenter
+  inherited PageControl1: TPageControl
+    Height = 392
+    TabStop = False
+    inherited Consulta: TTabSheet
+      ClientHeight = 364
+      inherited PanelPadraoCima: TPanel
+        inherited BtnPesquisa1: TBitBtn
+          OnClick = BtnPesquisa1Click
+        end
+        inherited Panel1: TPanel
+          inherited BtnNovo: TBitBtn
+            Top = 14
+            OnClick = BtnNovoClick
+          end
+        end
+      end
+      inherited PanelPadraoLateral: TPanel
+        Height = 314
+        ClientHeight = 314
+        inherited Panel2: TPanel
+          Top = 259
+          inherited BtnCancelar: TBitBtn
+            OnClick = BtnCancelarClick
+          end
+        end
+      end
+      inherited DBGrid1: TDBGrid
+        Height = 314
+        Columns = <        
+          item
+            Alignment = taCenter
+            PickList.Strings = (            )
+            Title.Caption = 'Produto Id'
+            Width = 70
+            FieldName = 'produtoid'
+          end        
+          item
+            Alignment = taCenter
+            PickList.Strings = (            )
+            Title.Caption = 'Id categoria'
+            Width = 70
+            FieldName = 'categoriaprodutoid'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Descrição Produto'
+            Width = 120
+            FieldName = 'ds_produto'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Obs Produto'
+            Width = 120
+            FieldName = 'obs_produto'
+          end        
+          item
+            Alignment = taCenter
+            PickList.Strings = (            )
+            Title.Caption = 'Valor Venda Produto'
+            Width = 115
+            FieldName = 'vl_venda_produto'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Desc Cat Prod'
+            Width = 80
+            FieldName = 'ds_categoria_produto'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Data Cad Prod'
+            Width = 95
+            FieldName = 'dt_cadastro_produto'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Status Prod'
+            Width = 75
+            FieldName = 'status_produto'
+          end>
+        DataSource = dsProdutos
+        TabStop = False
+        OnDblClick = DBGrid1DblClick
+      end
+    end
+    inherited Cadastro: TTabSheet
+      ClientHeight = 364
+      inherited Panel3: TPanel
+        Top = 314
+        inherited Panel4: TPanel
+          inherited BtnCancelar1: TBitBtn
+            OnClick = BtnCancelar1Click
+          end
+        end
+        inherited BtnGravar: TBitBtn
+          OnClick = BtnGravarClick
+        end
+        inherited BtnExcluir1: TBitBtn
+          OnClick = BtnExcluir1Click
+        end
+      end
+      object LabelCodigo: TLabel[1]
+        Left = 4
+        Height = 15
+        Top = 71
+        Width = 13
+        Caption = 'Id:'
+        ParentColor = False
+      end
+      object LabelCategoria: TLabel[2]
+        Left = 4
+        Height = 15
+        Top = 113
+        Width = 51
+        Caption = 'Categoria'
+        ParentColor = False
+      end
+      object LabelValorVenda: TLabel[3]
+        Left = 4
+        Height = 15
+        Top = 223
+        Width = 64
+        Caption = 'Valor Venda:'
+        ParentColor = False
+      end
+      object LabelDescSimples: TLabel[4]
+        Left = 4
+        Height = 15
+        Top = 148
+        Width = 51
+        Caption = 'Descrição'
+        ParentColor = False
+      end
+      object LabelObs: TLabel[5]
+        Left = 4
+        Height = 15
+        Top = 189
+        Width = 62
+        Caption = 'Observação'
+        ParentColor = False
+      end
+      object LabelDataCad: TLabel[6]
+        Left = 210
+        Height = 15
+        Top = 71
+        Width = 65
+        Caption = 'Dt. Cadastro'
+        ParentColor = False
+      end
+      object dbEditVenda: TDBEdit[7]
+        Left = 86
+        Height = 23
+        Top = 215
+        Width = 129
+        DataField = 'vl_venda_produto'
+        DataSource = dsProdutos
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 1
+      end
+      object dbEditObs: TDBEdit[8]
+        Left = 86
+        Height = 23
+        Top = 181
+        Width = 400
+        DataField = 'obs_produto'
+        DataSource = dsProdutos
+        MaxLength = 300
+        TabOrder = 2
+      end
+      object dbEditDesc: TDBEdit[9]
+        Left = 86
+        Height = 23
+        Top = 140
+        Width = 400
+        DataField = 'ds_produto'
+        DataSource = dsProdutos
+        MaxLength = 50
+        TabOrder = 3
+      end
+      object dbEditCategoria: TDBEdit[10]
+        Left = 86
+        Height = 23
+        Top = 105
+        Width = 40
+        DataField = 'categoriaprodutoid'
+        DataSource = dsProdutos
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 4
+      end
+      object dbEditId: TDBEdit[11]
+        Left = 86
+        Height = 23
+        Top = 63
+        Width = 50
+        DataField = 'produtoid'
+        DataSource = dsProdutos
+        ReadOnly = True
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 6
+        TabStop = False
+      end
+      object LabelStatus: TLabel[12]
+        Left = 476
+        Height = 15
+        Top = 67
+        Width = 35
+        Caption = 'Status:'
+        ParentColor = False
+      end
+      object DBStatus: TDBComboBox[13]
+        Left = 524
+        Height = 23
+        Top = 63
+        Width = 100
+        DataField = 'status_produto'
+        DataSource = dsProdutos
+        ItemHeight = 15
+        Items.Strings = (
+          'ATIVO'
+          'INATIVO'
+        )
+        MaxLength = 0
+        Style = csDropDownList
+        TabOrder = 5
+        TabStop = False
+      end
+      object DbDateNovo: TDBDateEdit[14]
+        Left = 284
+        Height = 23
+        Top = 63
+        Width = 136
+        CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+        DateOrder = doNone
+        ButtonWidth = 23
+        NumGlyphs = 1
+        MaxLength = 0
+        TabStop = False
+        TabOrder = 7
+        Text = '18/02/2023'
+        DataField = 'dt_cadastro_produto'
+        DataSource = dsProdutos
+      end
+      object SpCategoria: TSpeedButton[15]
+        Left = 224
+        Height = 23
+        Top = 105
+        Width = 28
+        Glyph.Data = {
+          4E010000424D4E01000000000000760000002800000013000000120000000100
+          040000000000D800000000000000000000000000000000000000000000000000
+          8000008000000080800080000000800080008080000080808000C0C0C0000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00666666666666
+          6666666000006666663666666666666000006666663066666666666000006666
+          6663066666666660000066666663B066666666600000666663000F0666666660
+          0000666663FBFBF06666666000006666663FB0333666666000006666663BFB06
+          66666660000066630000BFB06666666000006663FBFBFBFB0666666000006666
+          3FBFB03336666660000066663BFBFB06666666600000666663BFBFB066666660
+          0000666663FBFBFB0666666000006666663FBFBFB06666600000666666333333
+          333666600000666666666666666666600000
+        }
+        OnClick = SpCategoriaClick
+      end
+      object dbeDescrCat: TDBEdit[16]
+        Left = 127
+        Height = 23
+        Top = 105
+        Width = 97
+        DataField = 'ds_categoria_produto'
+        DataSource = dsProdutos
+        Enabled = False
+        MaxLength = 50
+        TabOrder = 8
+      end
+    end
+  end
+  object dsProdutos: TDataSource[1]
+    DataSet = DataModuleF.qryProduto
+    Left = 560
+    Top = 27
+  end
+end

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="prjOrcamento.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="11"/>
+        <CursorPos X="75" Y="15"/>
+        <UsageCount Value="266"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="orcamento.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="OrcamentoF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Orcamento"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="335"/>
+        <CursorPos X="10" Y="337"/>
+        <UsageCount Value="266"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="modelo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ModeloF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="36"/>
+        <CursorPos Y="41"/>
+        <UsageCount Value="266"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="menu.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MenuF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="24" Y="15"/>
+        <UsageCount Value="266"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Sobre.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="SobreF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="sobre"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="14"/>
+        <TopLine Value="17"/>
+        <CursorPos Y="21"/>
+        <UsageCount Value="266"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="categoria.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CategoriaF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Categoria"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="81"/>
+        <CursorPos X="3" Y="92"/>
+        <UsageCount Value="265"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="datamodule.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DataModuleF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="DataModule"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="239"/>
+        <CursorPos Y="263"/>
+        <UsageCount Value="265"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="produtos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProdutosF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Produtos"/>
+        <EditorIndex Value="12"/>
+        <TopLine Value="117"/>
+        <CursorPos Y="142"/>
+        <UsageCount Value="217"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="pesquisacategoria.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PesquisaCategoriaF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PesquisaCategoria"/>
+        <EditorIndex Value="9"/>
+        <CursorPos Y="8"/>
+        <UsageCount Value="213"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="clientes.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ClienteF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Clientes"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="22" Y="8"/>
+        <UsageCount Value="211"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="pesquisacliente.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PesquisaClienteF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PesquisaCliente"/>
+        <EditorIndex Value="10"/>
+        <TopLine Value="52"/>
+        <CursorPos X="6" Y="52"/>
+        <UsageCount Value="209"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="caditemorc.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CadItemOrcF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="CadItemOrc"/>
+        <TopLine Value="166"/>
+        <CursorPos X="5" Y="189"/>
+        <UsageCount Value="259"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="pesqprod.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PesqProdF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PesqProd"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="76"/>
+        <CursorPos X="9" Y="87"/>
+        <UsageCount Value="259"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="login.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="LoginF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Login"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="74"/>
+        <CursorPos X="6" Y="93"/>
+        <UsageCount Value="256"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="relatorios.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="RelatoriosF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Relatorios"/>
+        <EditorIndex Value="13"/>
+        <TopLine Value="17"/>
+        <CursorPos Y="33"/>
+        <UsageCount Value="208"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\zeosdbo-8.0.0-stable\src\dbc\ZDbcPostgreSql.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="657"/>
+        <CursorPos X="29" Y="675"/>
+        <UsageCount Value="82"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\dbctrls.pp"/>
+        <UnitName Value="DBCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1657"/>
+        <CursorPos Y="1670"/>
+        <UsageCount Value="74"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\dbextctrls.pp"/>
+        <UnitName Value="DBExtCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="54"/>
+        <CursorPos X="24" Y="69"/>
+        <UsageCount Value="56"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\lresources.pp"/>
+        <UnitName Value="LResources"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3127"/>
+        <CursorPos Y="3137"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\zeosdbo-8.0.0-stable\src\component\ZPropertiesEditor.pas"/>
+        <ComponentName Value="frmPropertyEditor"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4378"/>
+        <CursorPos X="73" Y="4391"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="22">
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="280" Column="46" TopLine="271"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="299" Column="5" TopLine="276"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="32" Column="22" TopLine="22"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="299" TopLine="276"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="254" Column="55" TopLine="240"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="293" Column="58" TopLine="276"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="288" Column="92" TopLine="276"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="294" Column="52" TopLine="276"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="284" TopLine="257"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="8" Column="38"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="246" Column="60" TopLine="228"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="258" Column="36" TopLine="243"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="239" Column="6" TopLine="228"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="233" Column="49" TopLine="228"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="270" Column="53" TopLine="260"/>
+      </Position>
+      <Position>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="283" TopLine="260"/>
+      </Position>
+      <Position>
+        <Filename Value="caditemorc.pas"/>
+        <Caret Line="170" Column="47" TopLine="164"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="345" Column="58" TopLine="332"/>
+      </Position>
+      <Position>
+        <Filename Value="pesqprod.pas"/>
+        <Caret Line="82" Column="65" TopLine="73"/>
+      </Position>
+      <Position>
+        <Filename Value="login.pas"/>
+        <Caret Line="84" Column="49" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="pesqprod.pas"/>
+        <Caret Line="87" Column="47" TopLine="77"/>
+      </Position>
+      <Position>
+        <Filename Value="login.pas"/>
+        <Caret Line="86" Column="41" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="login.pas"/>
+        <Caret Line="93" Column="36" TopLine="74"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

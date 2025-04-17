@@ -1,0 +1,139 @@
+inherited CategoriaF: TCategoriaF
+  Left = 467
+  Height = 577
+  Top = 158
+  Width = 987
+  Caption = 'Categoria'
+  ClientHeight = 577
+  ClientWidth = 987
+  Position = poScreenCenter
+  inherited PageControl1: TPageControl
+    Height = 577
+    Width = 987
+    TabStop = False
+    inherited Consulta: TTabSheet
+      ClientHeight = 549
+      ClientWidth = 979
+      inherited PanelPadraoCima: TPanel
+        Width = 979
+        ClientWidth = 979
+        inherited eCodigo: TEdit
+          Left = 72
+        end
+        inherited LCodigo: TLabel
+          Width = 51
+          Caption = 'Descrição'
+        end
+        inherited BtnPesquisa1: TBitBtn
+          Left = 197
+          Height = 26
+          Width = 81
+          OnClick = BtnPesquisa1Click
+        end
+        inherited Panel1: TPanel
+          Left = 809
+          inherited BtnNovo: TBitBtn
+            Width = 81
+            OnClick = BtnNovoClick
+          end
+        end
+      end
+      inherited PanelPadraoLateral: TPanel
+        Left = 880
+        Height = 499
+        ClientHeight = 499
+        inherited Panel2: TPanel
+          Top = 444
+          inherited BtnCancelar: TBitBtn
+            Top = 16
+            Width = 81
+            OnClick = BtnCancelarClick
+          end
+        end
+      end
+      inherited DBGrid1: TDBGrid
+        Height = 499
+        Width = 880
+        Columns = <        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Id'
+            FieldName = 'categoriaprodutoid'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Descrição'
+            FieldName = 'ds_categoria_produto'
+          end>
+        DataSource = DsCategoria
+        TabStop = False
+        OnDblClick = DBGrid1DblClick
+      end
+    end
+    inherited Cadastro: TTabSheet
+      ClientHeight = 549
+      ClientWidth = 979
+      inherited Panel3: TPanel
+        Top = 499
+        Width = 979
+        ClientWidth = 979
+        inherited Panel4: TPanel
+          Left = 809
+          inherited BtnCancelar1: TBitBtn
+            OnClick = BtnCancelar1Click
+          end
+        end
+        inherited BtnGravar: TBitBtn
+          OnClick = BtnGravarClick
+        end
+        inherited BtnExcluir1: TBitBtn
+          OnClick = BtnExcluir1Click
+        end
+      end
+      object LabelCodigo: TLabel[1]
+        Left = 4
+        Height = 15
+        Top = 71
+        Width = 13
+        Caption = 'Id:'
+        ParentColor = False
+      end
+      object dbEditId: TDBEdit[2]
+        Left = 86
+        Height = 23
+        Top = 63
+        Width = 50
+        DataField = 'categoriaprodutoid'
+        DataSource = DsCategoria
+        ReadOnly = True
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 1
+        TabStop = False
+      end
+      object LabelDesc: TLabel[3]
+        Left = 4
+        Height = 15
+        Top = 110
+        Width = 51
+        Caption = 'Descrição'
+        ParentColor = False
+      end
+      object dbEditDesc: TDBEdit[4]
+        Left = 86
+        Height = 23
+        Top = 102
+        Width = 100
+        DataField = 'ds_categoria_produto'
+        DataSource = DsCategoria
+        MaxLength = 50
+        TabOrder = 2
+      end
+    end
+  end
+  object DsCategoria: TDataSource[1]
+    DataSet = DataModuleF.qryCategoria
+    Left = 568
+    Top = 30
+  end
+end

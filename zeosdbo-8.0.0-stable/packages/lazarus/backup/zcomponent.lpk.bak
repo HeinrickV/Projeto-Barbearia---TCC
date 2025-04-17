@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <PathDelim Value="\"/>
+    <Name Value="zcomponent"/>
+    <AddToProjectUsesSection Value="True"/>
+    <DesignTime Value="True"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <OtherUnitFiles Value="..\..\src\component"/>
+        <UnitOutputDirectory Value="lib\zcomponent\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Parsing>
+        <SyntaxOptions>
+          <SyntaxMode Value="Delphi"/>
+          <CStyleOperator Value="False"/>
+          <UseAnsiStrings Value="False"/>
+        </SyntaxOptions>
+      </Parsing>
+      <Other>
+        <CustomOptions Value="-dZEOSDEBUG"/>
+      </Other>
+    </CompilerOptions>
+    <Description Value="Zeos Database Components"/>
+    <Version Major="8"/>
+    <Files Count="22">
+      <!-- Aqui ficam os arquivos .pas (sem alterações) -->
+    </Files>
+    <CompatibilityMode Value="True"/>
+    <RequiredPkgs Count="5">
+      <!-- Aqui ficam os pacotes requeridos (sem alterações) -->
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <CustomOptions Items="ExternHelp" Version="2">
+      <_ExternHelp Items="Count"/>
+    </CustomOptions>
+  </Package>
+</CONFIG>

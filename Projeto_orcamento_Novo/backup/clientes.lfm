@@ -1,0 +1,154 @@
+inherited ClienteF: TClienteF
+  Left = 658
+  Top = 233
+  Caption = 'Cadastro de Clientes'
+  Position = poScreenCenter
+  inherited PageControl1: TPageControl
+    ActivePage = Cadastro
+    TabIndex = 1
+    inherited Consulta: TTabSheet
+      inherited PanelPadraoCima: TPanel
+        inherited BtnPesquisa1: TBitBtn
+          Width = 81
+          OnClick = BtnPesquisa1Click
+        end
+        inherited Panel1: TPanel
+          inherited BtnNovo: TBitBtn
+            OnClick = BtnNovoClick
+          end
+        end
+      end
+      inherited PanelPadraoLateral: TPanel
+        inherited Panel2: TPanel
+          inherited BtnCancelar: TBitBtn
+            OnClick = BtnCancelarClick
+          end
+        end
+      end
+      inherited DBGrid1: TDBGrid
+        Columns = <        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Id'
+            Width = 25
+            FieldName = 'clienteid'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Cpf/Cnpj'
+            Width = 140
+            FieldName = 'cpf_cnpj_cliente'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Nome Fantasia/Social'
+            Width = 160
+            FieldName = 'nome_cliente'
+          end        
+          item
+            PickList.Strings = (            )
+            Title.Caption = 'Tipo'
+            Width = 30
+            FieldName = 'tipo_cliente'
+          end>
+        DataSource = dsCliente
+        OnDblClick = DBGrid1DblClick
+      end
+    end
+    inherited Cadastro: TTabSheet
+      inherited Panel3: TPanel
+        TabOrder = 3
+        inherited Panel4: TPanel
+          inherited BtnCancelar1: TBitBtn
+            OnClick = BtnCancelar1Click
+          end
+        end
+        inherited BtnGravar: TBitBtn
+          OnClick = BtnGravarClick
+        end
+        inherited BtnExcluir1: TBitBtn
+          OnClick = BtnExcluir1Click
+        end
+      end
+      object LabelId: TLabel[1]
+        Left = 4
+        Height = 15
+        Top = 110
+        Width = 13
+        Caption = 'Id:'
+        ParentColor = False
+      end
+      object LabelCPFCNPJ: TLabel[2]
+        Left = 260
+        Height = 15
+        Top = 110
+        Width = 49
+        Caption = 'Cpf/Cnpj'
+        ParentColor = False
+      end
+      object LabelNomeFantasia: TLabel[3]
+        Left = 4
+        Height = 15
+        Top = 147
+        Width = 112
+        Caption = 'Nome fantasia/social'
+        ParentColor = False
+      end
+      object dbEditNome: TDBEdit[4]
+        Left = 132
+        Height = 23
+        Top = 139
+        Width = 325
+        DataField = 'nome_cliente'
+        DataSource = dsCliente
+        MaxLength = 100
+        TabOrder = 2
+      end
+      object dbEditCPFCNPJ: TDBEdit[5]
+        Left = 322
+        Height = 23
+        Top = 102
+        Width = 135
+        DataField = 'cpf_cnpj_cliente'
+        DataSource = dsCliente
+        MaxLength = 18
+        TabOrder = 1
+      end
+      object dbEditId: TDBEdit[6]
+        Left = 38
+        Height = 23
+        Top = 102
+        Width = 28
+        DataField = 'clienteid'
+        DataSource = dsCliente
+        ReadOnly = True
+        Alignment = taRightJustify
+        MaxLength = 0
+        TabOrder = 4
+      end
+      object LabelTipo: TLabel[7]
+        Left = 126
+        Height = 15
+        Top = 110
+        Width = 23
+        Caption = 'Tipo'
+        ParentColor = False
+      end
+      object dbEditTipo: TDBEdit[8]
+        Left = 173
+        Height = 23
+        Top = 102
+        Width = 28
+        DataField = 'tipo_cliente'
+        DataSource = dsCliente
+        MaxLength = 50
+        TabOrder = 0
+      end
+    end
+  end
+  object dsCliente: TDataSource[1]
+    DataSet = DataModuleF.qryCliente
+    Left = 539
+    Top = 26
+  end
+end

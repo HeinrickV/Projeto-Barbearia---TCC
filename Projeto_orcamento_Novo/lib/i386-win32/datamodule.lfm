@@ -1,0 +1,821 @@
+object DataModuleF: TDataModuleF
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 485
+  HorizontalOffset = 1108
+  VerticalOffset = 221
+  Width = 623
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = 'localhost'
+    Port = 5432
+    Database = 'postgres'
+    User = 'postgres'
+    Password = '1234'
+    Protocol = 'postgresql'
+    Left = 42
+    Top = 34
+  end
+  object qryCategoria: TZQuery
+    Connection = ZConnection1
+    SortedFields = 'categoriaprodutoid'
+    UpdateObject = updtCategoria
+    OnNewRecord = qryCategoriaNewRecord
+    Active = True
+    SQL.Strings = (
+      'SELECT '
+      'CATEGORIAPRODUTOID,'
+      'DS_CATEGORIA_PRODUTO'
+      'FROM CATEGORIA_PRODUTO'
+    )
+    Params = <>
+    IndexFieldNames = 'categoriaprodutoid Asc'
+    Left = 130
+    Top = 103
+    object qryCategoriacategoriaprodutoid: TLongintField
+      DisplayLabel = 'Id'
+      DisplayWidth = 3
+      FieldKind = fkData
+      FieldName = 'categoriaprodutoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryCategoriads_categoria_produto: TStringField
+      DisplayLabel = 'Descrição'
+      DisplayWidth = 40
+      FieldKind = fkData
+      FieldName = 'ds_categoria_produto'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+  end
+  object qryGenerica: TZQuery
+    Connection = ZConnection1
+    Params = <>
+    Left = 130
+    Top = 428
+  end
+  object qryProduto: TZQuery
+    Connection = ZConnection1
+    SortedFields = 'produtoid'
+    UpdateObject = updtProduto
+    OnNewRecord = qryProdutoNewRecord
+    Active = True
+    SQL.Strings = (
+      'SELECT '
+      '  p.PRODUTOID,'
+      '  p.CATEGORIAPRODUTOID,'
+      '  p.DS_PRODUTO,'
+      '  p.OBS_PRODUTO,'
+      '  p.VL_VENDA_PRODUTO,'
+      '  p.DT_CADASTRO_PRODUTO,'
+      '  p.STATUS_PRODUTO,'
+      '  c.DS_CATEGORIA_PRODUTO'
+      'FROM '
+      '  produto p'
+      'JOIN'
+      '  categoria_produto c ON p.CATEGORIAPRODUTOID = c.CATEGORIAPRODUTOID;'
+    )
+    Params = <>
+    IndexFieldNames = 'produtoid Asc'
+    Left = 130
+    Top = 40
+    object qryProdutoprodutoid: TLongintField
+      DisplayLabel = 'Produto Id'
+      FieldKind = fkData
+      FieldName = 'produtoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryProdutocategoriaprodutoid: TLongintField
+      DisplayLabel = 'Id categoria'
+      FieldKind = fkData
+      FieldName = 'categoriaprodutoid'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryProdutods_produto: TStringField
+      DisplayLabel = 'Descrição Produto'
+      FieldKind = fkData
+      FieldName = 'ds_produto'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+    object qryProdutoobs_produto: TStringField
+      DisplayLabel = 'Obs Produto'
+      FieldKind = fkData
+      FieldName = 'obs_produto'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qryProdutovl_venda_produto: TFloatField
+      DisplayLabel = 'Valor Venda Produto'
+      FieldKind = fkData
+      FieldName = 'vl_venda_produto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayFormat = 'R$ 00.00'
+      Precision = 983042
+    end
+    object qryProdutodt_cadastro_produto: TDateTimeField
+      DisplayLabel = 'Data Cad Prod'
+      FieldKind = fkData
+      FieldName = 'dt_cadastro_produto'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryProdutostatus_produto: TStringField
+      DisplayLabel = 'Status Prod'
+      FieldKind = fkData
+      FieldName = 'status_produto'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
+    end
+    object qryProdutods_categoria_produto: TStringField
+      DisplayLabel = 'Desc Cat Prod'
+      FieldKind = fkData
+      FieldName = 'ds_categoria_produto'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+  end
+  object updtProduto: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM produto'
+      'WHERE'
+      '  produto.produtoid = :OLD_produtoid'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO produto'
+      '  (produtoid, categoriaprodutoid, ds_produto, obs_produto, vl_venda_produto, '
+      '   dt_cadastro_produto, status_produto, ds_categoria_produto)'
+      'VALUES'
+      '  (:produtoid, :categoriaprodutoid, :ds_produto, :obs_produto, :vl_venda_produto, '
+      '   :dt_cadastro_produto, :status_produto, :ds_categoria_produto)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE produto SET'
+      '  produtoid = :produtoid,'
+      '  categoriaprodutoid = :categoriaprodutoid,'
+      '  ds_produto = :ds_produto,'
+      '  obs_produto = :obs_produto,'
+      '  vl_venda_produto = :vl_venda_produto,'
+      '  dt_cadastro_produto = :dt_cadastro_produto,'
+      '  status_produto = :status_produto,'
+      '  ds_categoria_produto = :ds_categoria_produto'
+      'WHERE'
+      '  produto.produtoid = :OLD_produtoid'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 40
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'produtoid'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'categoriaprodutoid'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ds_produto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'obs_produto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'vl_venda_produto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'dt_cadastro_produto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'status_produto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ds_categoria_produto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_produtoid'
+        ParamType = ptUnknown
+      end>
+  end
+  object updtCategoria: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM CATEGORIA_PRODUTO'
+      'WHERE'
+      '  CATEGORIA_PRODUTO.categoriaprodutoid = :OLD_categoriaprodutoid'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO CATEGORIA_PRODUTO'
+      '  (categoriaprodutoid, ds_categoria_produto)'
+      'VALUES'
+      '  (:categoriaprodutoid, :ds_categoria_produto)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE CATEGORIA_PRODUTO SET'
+      '  categoriaprodutoid = :categoriaprodutoid,'
+      '  ds_categoria_produto = :ds_categoria_produto'
+      'WHERE'
+      '  CATEGORIA_PRODUTO.categoriaprodutoid = :OLD_categoriaprodutoid'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 103
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'categoriaprodutoid'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ds_categoria_produto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_categoriaprodutoid'
+        ParamType = ptUnknown
+      end>
+  end
+  object qryCliente: TZQuery
+    Connection = ZConnection1
+    SortedFields = 'clienteid'
+    UpdateObject = updtCliente
+    OnNewRecord = qryClienteNewRecord
+    Active = True
+    SQL.Strings = (
+      'SELECT'
+      'CLIENTEID,'
+      'CPF_CNPJ_CLIENTE ,'
+      'NOME_CLIENTE,'
+      'TIPO_CLIENTE'
+      'FROM CLIENTE'
+    )
+    Params = <>
+    IndexFieldNames = 'clienteid Asc'
+    Left = 130
+    Top = 161
+    object qryClienteclienteid: TLongintField
+      DisplayLabel = 'Id'
+      FieldKind = fkData
+      FieldName = 'clienteid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryClientecpf_cnpj_cliente: TStringField
+      DisplayLabel = 'Cpf/Cnpj'
+      FieldKind = fkData
+      FieldName = 'cpf_cnpj_cliente'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 18
+    end
+    object qryClientenome_cliente: TStringField
+      DisplayLabel = 'Nome Fantasia/Social'
+      FieldKind = fkData
+      FieldName = 'nome_cliente'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object qryClientetipo_cliente: TStringField
+      DisplayLabel = 'Tipo'
+      FieldKind = fkData
+      FieldName = 'tipo_cliente'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 1
+    end
+  end
+  object updtCliente: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM CLIENTE'
+      'WHERE'
+      '  CLIENTE.clienteid = :OLD_clienteid'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO CLIENTE'
+      '  (clienteid, cpf_cnpj_cliente, nome_cliente, tipo_cliente)'
+      'VALUES'
+      '  (:clienteid, :cpf_cnpj_cliente, :nome_cliente, :tipo_cliente)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE CLIENTE SET'
+      '  clienteid = :clienteid,'
+      '  cpf_cnpj_cliente = :cpf_cnpj_cliente,'
+      '  nome_cliente = :nome_cliente,'
+      '  tipo_cliente = :tipo_cliente'
+      'WHERE'
+      '  CLIENTE.clienteid = :OLD_clienteid'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 161
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'clienteid'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cpf_cnpj_cliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nome_cliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'tipo_cliente'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_clienteid'
+        ParamType = ptUnknown
+      end>
+  end
+  object qryOrcamento: TZQuery
+    Connection = ZConnection1
+    SortedFields = 'clienteid'
+    UpdateObject = updtOrcamento
+    AfterPost = qryOrcamentoAfterPost
+    OnNewRecord = qryOrcamentoNewRecord
+    Active = True
+    SQL.Strings = (
+      'SELECT o.ORCAMENTOID, o.CLIENTEID, o.DT_ORCAMENTO, o.DT_VALIDADE_ORCAMENTO, o.VL_TOTAL_ORCAMENTO, c.NOME_CLIENTE '
+      '             FROM ORCAMENTO o '
+      '           JOIN CLIENTE c ON o.CLIENTEID = c.CLIENTEID'
+    )
+    Params = <>
+    IndexFieldNames = 'clienteid Asc'
+    Left = 130
+    Top = 233
+    object qryOrcamentoorcamentoid: TLongintField
+      DisplayLabel = 'Orc Id'
+      FieldKind = fkData
+      FieldName = 'orcamentoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcamentoclienteid: TLongintField
+      DisplayLabel = 'Cliente Id'
+      FieldKind = fkData
+      FieldName = 'clienteid'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcamentonome_cliente: TStringField
+      DisplayLabel = 'Nome Fantasia/Social'
+      FieldKind = fkData
+      FieldName = 'nome_cliente'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+    object qryOrcamentodt_orcamento: TDateTimeField
+      DisplayLabel = 'Data Cadastro'
+      FieldKind = fkData
+      FieldName = 'dt_orcamento'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      EditMask = 'DD/MM/YYYY'
+    end
+    object qryOrcamentodt_validade_orcamento: TDateTimeField
+      DisplayLabel = 'Data Validade'
+      FieldKind = fkData
+      FieldName = 'dt_validade_orcamento'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcamentovl_total_orcamento: TFloatField
+      Alignment = taCenter
+      DisplayLabel = 'Vlr Total '
+      FieldKind = fkData
+      FieldName = 'vl_total_orcamento'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayFormat = 'R$ 0.0,0'
+      Precision = 983042
+    end
+  end
+  object updtOrcamento: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM ORCAMENTO'
+      'WHERE'
+      '  ORCAMENTO.orcamentoid = :OLD_orcamentoid'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO ORCAMENTO'
+      '  (orcamentoid, clienteid, dt_orcamento, dt_validade_orcamento, vl_total_orcamento)'
+      'VALUES'
+      '  (:orcamentoid, :clienteid, :dt_orcamento, :dt_validade_orcamento, :vl_total_orcamento)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE ORCAMENTO SET'
+      '  orcamentoid = :orcamentoid,'
+      '  clienteid = :clienteid,'
+      '  dt_orcamento = :dt_orcamento,'
+      '  dt_validade_orcamento = :dt_validade_orcamento,'
+      '  vl_total_orcamento = :vl_total_orcamento'
+      'WHERE'
+      '  ORCAMENTO.orcamentoid = :OLD_orcamentoid'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 233
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'orcamentoid'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'clienteid'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'dt_orcamento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'dt_validade_orcamento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'vl_total_orcamento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_orcamentoid'
+        ParamType = ptUnknown
+      end>
+  end
+  object qryOrcamentoItem: TZQuery
+    Connection = ZConnection1
+    SortedFields = 'orcamentoid'
+    UpdateObject = updtOrcamentoItem
+    Active = True
+    SQL.Strings = (
+      'SELECT '
+      'ORCAMENTOID,'
+      'ORCAMENTOITEMID,'
+      'PRODUTOID, '
+      'PRODUTODESC, '
+      'QT_PRODUTO, '
+      'VL_UNITARIO, '
+      'VL_TOTAL'
+      'FROM ORCAMENTO_ITEM;'
+    )
+    Params = <>
+    IndexFieldNames = 'orcamentoid Asc'
+    Left = 130
+    Top = 294
+    object qryOrcamentoItemorcamentoid: TLongintField
+      DisplayLabel = 'Orc Id'
+      FieldKind = fkData
+      FieldName = 'orcamentoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcamentoItemorcamentoitemid: TLongintField
+      DisplayLabel = 'Orc Item Id'
+      FieldKind = fkData
+      FieldName = 'orcamentoitemid'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcamentoItemprodutoid: TLongintField
+      DisplayLabel = 'Produto Id'
+      FieldKind = fkData
+      FieldName = 'produtoid'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcamentoItemprodutodesc: TStringField
+      DisplayLabel = 'Desc Prod'
+      FieldKind = fkData
+      FieldName = 'produtodesc'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qryOrcamentoItemqt_produto: TFloatField
+      DisplayLabel = 'Qtde Prod'
+      FieldKind = fkData
+      FieldName = 'qt_produto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnChange = qryOrcamentoItemqt_produtoChange
+      Precision = 983042
+    end
+    object qryOrcamentoItemvl_unitario: TFloatField
+      DisplayLabel = 'Vlr Unit'
+      FieldKind = fkData
+      FieldName = 'vl_unitario'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayFormat = 'R$ 00.00,00'
+      Precision = 983042
+    end
+    object qryOrcamentoItemvl_total: TFloatField
+      DisplayLabel = 'Vlr Total'
+      FieldKind = fkData
+      FieldName = 'vl_total'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      DisplayFormat = 'R$ 00.00,00'
+      Precision = 983042
+    end
+  end
+  object updtOrcamentoItem: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM ORCAMENTO_ITEM'
+      'WHERE'
+      '  ORCAMENTO_ITEM.orcamentoid = :OLD_orcamentoid'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO ORCAMENTO_ITEM'
+      '  (orcamentoid, orcamentoitemid, produtoid, produtodesc, qt_produto, vl_unitario, '
+      '   vl_total)'
+      'VALUES'
+      '  (:orcamentoid, :orcamentoitemid, :produtoid, :produtodesc, :qt_produto, '
+      '   :vl_unitario, :vl_total)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE ORCAMENTO_ITEM SET'
+      '  orcamentoid = :orcamentoid,'
+      '  orcamentoitemid = :orcamentoitemid,'
+      '  produtoid = :produtoid,'
+      '  produtodesc = :produtodesc,'
+      '  qt_produto = :qt_produto,'
+      '  vl_unitario = :vl_unitario,'
+      '  vl_total = :vl_total'
+      'WHERE'
+      '  ORCAMENTO_ITEM.orcamentoid = :OLD_orcamentoid'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 294
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'orcamentoid'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'orcamentoitemid'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'produtoid'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'produtodesc'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'qt_produto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'vl_unitario'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'vl_total'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_orcamentoid'
+        ParamType = ptUnknown
+      end>
+  end
+  object zupdUsuarios: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM USUARIOS'
+      'WHERE'
+      '  USUARIOS.id = :OLD_id'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO USUARIOS'
+      '  (id, usuario, nome_completo, senha)'
+      'VALUES'
+      '  (:id, :usuario, :nome_completo, :senha)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE USUARIOS SET'
+      '  id = :id,'
+      '  usuario = :usuario,'
+      '  nome_completo = :nome_completo,'
+      '  senha = :senha'
+      'WHERE'
+      '  USUARIOS.id = :OLD_id'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 356
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'usuario'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nome_completo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'senha'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_id'
+        ParamType = ptUnknown
+      end>
+  end
+  object qryUsuarios: TZQuery
+    Connection = ZConnection1
+    UpdateObject = zupdUsuarios
+    Active = True
+    SQL.Strings = (
+      'SELECT * FROM USUARIOS'
+    )
+    Params = <>
+    Left = 130
+    Top = 356
+    object qryUsuariosid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryUsuariosusuario: TStringField
+      FieldKind = fkData
+      FieldName = 'usuario'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object qryUsuariosnome_completo: TStringField
+      FieldKind = fkData
+      FieldName = 'nome_completo'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object qryUsuariossenha: TStringField
+      FieldKind = fkData
+      FieldName = 'senha'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+end

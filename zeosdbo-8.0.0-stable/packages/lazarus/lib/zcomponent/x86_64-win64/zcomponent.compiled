@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Lazarus Version="3.8"/>
+  <Compiler Value="C:\lazarus\fpc\3.2.2\bin\x86_64-win64\fpc.exe" Date="1513316847"/>
+  <Params Value=" -MDelphi -Sgi -O1 -g -gl -l -vewnhibq -FuC:\Users\rick_\Downloads\zeosdbo-8.0.0-stable\src\component -FuC:\lazarus\packager\units\x86_64-win64 -FuC:\Users\rick_\Downloads\zeosdbo-8.0.0-stable\packages\lazarus\lib\zcore\x86_64-win64 -FuC:\Users\rick_\Downloads\zeosdbo-8.0.0-stable\packages\lazarus\lib\zparsesql\x86_64-win64 -FuC:\Users\rick_\Downloads\zeosdbo-8.0.0-stable\packages\lazarus\lib\zplain\x86_64-win64 -FuC:\Users\rick_\Downloads\zeosdbo-8.0.0-stable\packages\lazarus\lib\zdbc\x86_64-win64 -FuC:\Users\rick_\Downloads\zeosdbo-8.0.0-stable\packages\lazarus\ -FUC:\Users\rick_\Downloads\zeosdbo-8.0.0-stable\packages\lazarus\lib\zcomponent\x86_64-win64\ -dZEOSDEBUG zcomponent.pas"/>
+</CONFIG>
