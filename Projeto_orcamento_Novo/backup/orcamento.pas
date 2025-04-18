@@ -146,44 +146,63 @@ begin
 end;
 procedure TOrcamentoF.BtnGravarClick(Sender: TObject);
 begin
+  // Desabilita controles para evitar interação durante o processamento
+  Screen.Cursor := crHourGlass;
   try
-    // Validação básica
-    if DataModuleF.qryOrcamento.State = dsInactive then
-    begin
-      ShowMessage('Dataset não está ativo');
-      Exit;
+    try
+      // Validação básica
+      if not DataModuleF.qryOrcamento.Active then
+      begin
+        ShowMessage('Dataset não está ativo');
+        Exit;
+      end;
+
+      // Força a saída dos campos de data
+      if DbDataCadastro.Focused then
+        DbDataCadastro.EditingDone;
+      if DbDataValidade.Focused then
+        DbDataValidade.EditingDone;
+
+      // Validação de cliente
+      if DataModuleF.qryOrcamento.FieldByName('CLIENTEID').IsNull then
+      begin
+        ShowMessage('Selecione um cliente antes de gravar!');
+        Exit;
+      end;
+
+      // Garante modo de edição
+      if not (DataModuleF.qryOrcamento.State in [dsEdit, dsInsert]) then
+        DataModuleF.qryOrcamento.Edit;
+
+      // Atualiza totais
+      DataModuleF.SomaItens;
+
+      // Marca como gravado e aplica
+      DataModuleF.qryOrcamento.FieldByName('GRAVADO').AsString := 'SIM';
+
+      // Processo de gravação seguro
+      DataModuleF.ZConnection1.StartTransaction;
+      try
+        DataModuleF.qryOrcamento.Post;
+        DataModuleF.qryOrcamento.ApplyUpdates;
+        DataModuleF.ZConnection1.Commit;
+
+        ShowMessage('Orçamento gravado com sucesso!');
+        PageControl1.TabIndex := 0;
+      except
+        on E: Exception do
+        begin
+          DataModuleF.ZConnection1.Rollback;
+          DataModuleF.qryOrcamento.Cancel;
+          raise Exception.Create('Erro ao gravar: ' + E.Message);
+        end;
+      end;
+    except
+      on E: Exception do
+        ShowMessage('Erro: ' + E.Message);
     end;
-
-    // Força a atualização dos campos de data
-    if DbDataCadastro.Focused then
-      DbDataCadastro.EditingDone;
-    if DbDataValidade.Focused then
-      DbDataValidade.EditingDone;
-
-    // Verifica cliente
-    if DataModuleF.qryOrcamento.FieldByName('CLIENTEID').IsNull then
-    begin
-      ShowMessage('Selecione um cliente antes de gravar!');
-      Exit;
-    end;
-
-    // Garante modo de edição
-    if not (DataModuleF.qryOrcamento.State in [dsEdit, dsInsert]) then
-      DataModuleF.qryOrcamento.Edit;
-
-    // Atualiza totais e grava
-    DataModuleF.SomaItens;
-
-    // Marca como gravado
-    DataModuleF.qryOrcamento.FieldByName('GRAVADO').AsString := 'SIM';
-    DataModuleF.qryOrcamento.Post;
-    DataModuleF.qryOrcamento.ApplyUpdates;
-
-    ShowMessage('Orçamento gravado com sucesso!');
-    PageControl1.TabIndex := 0;
-  except
-    on E: Exception do
-      ShowMessage('Erro ao gravar orçamento: ' + E.Message);
+  finally
+    Screen.Cursor := crDefault;
   end;
 end;
 

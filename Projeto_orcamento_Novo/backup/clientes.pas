@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, DBCtrls, DBExtCtrls, Buttons, modelo, DB, DataModule, MaskUtils;
+  StdCtrls, DBCtrls, Buttons, modelo, DB, DataModule;
 
 type
 

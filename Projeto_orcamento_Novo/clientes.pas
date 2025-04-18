@@ -77,10 +77,6 @@ begin
 end;
 
 
-
-
-
-
 procedure TClienteF.DBGrid1DblClick(Sender: TObject);
 begin
   pagecontrol1.TabIndex := 1;

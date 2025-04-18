@@ -17,8 +17,6 @@ type
 				    BtnImprimir2: TBitBtn;
 				    BtnImprimir3: TBitBtn;
 				    BtnImprimir4: TBitBtn;
-				    BtnImprimir5: TBitBtn;
-				    BtnImprimir6: TBitBtn;
 				    frdbOrcItens: TfrDBDataSet;
 				    frdbOrcItens1: TfrDBDataSet;
 				    frdbOrcItens2: TfrDBDataSet;
@@ -29,6 +27,8 @@ type
 				    Panel1: TPanel;
 				    Panel2: TPanel;
 				    Panel3: TPanel;
+                                    procedure BtnImprimir4Click(Sender: TObject
+                                      );
 
 
 
@@ -48,7 +48,10 @@ implementation
 { TRelatoriosF }
 
 
+procedure TRelatoriosF.BtnImprimir4Click(Sender: TObject);
+begin
 
+end;
 
 end.
 

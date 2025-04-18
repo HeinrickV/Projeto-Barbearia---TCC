@@ -230,13 +230,6 @@ end;
 var
   FormItem: TcadItemOrcF;
 begin
-  // Verifica se o dataset principal está ativo
-  if not DataModuleF.qryOrcamento.Active then
-  begin
-    ShowMessage('Dataset de orçamento não está ativo!');
-    Exit;
-  end;
-
   // Verifica se pode adicionar itens
   if DataModuleF.qryOrcamento.State = dsInsert then
   begin

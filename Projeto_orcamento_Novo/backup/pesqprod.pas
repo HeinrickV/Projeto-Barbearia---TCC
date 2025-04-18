@@ -40,7 +40,7 @@ var
 
 implementation
 uses
-
+  cadItemOrc;
 
 {$R *.lfm}
 

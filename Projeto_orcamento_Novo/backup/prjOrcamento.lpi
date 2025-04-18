@@ -169,6 +169,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="..\zeosdbo-8.0.0-stable\packages\lazarus\lib\zcomponent\x86_64-win64;..\zeosdbo-8.0.0-stable\packages\lazarus\lib\zcore\x86_64-win64;..\zeosdbo-8.0.0-stable\packages\lazarus\lib\zdbc\x86_64-win64;..\zeosdbo-8.0.0-stable\packages\lazarus\lib\zparsesql\x86_64-win64;..\zeosdbo-8.0.0-stable\packages\lazarus\lib\zplain\x86_64-win64;..\zeosdbo-8.0.0-stable\src;..\zeosdbo-8.0.0-stable\src\component;..\zeosdbo-8.0.0-stable\src\core;..\zeosdbo-8.0.0-stable\src\dbc;..\zeosdbo-8.0.0-stable\src\parsesql;..\zeosdbo-8.0.0-stable\src\plain;..\zeosdbo-8.0.0-stable\src\webservice"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
