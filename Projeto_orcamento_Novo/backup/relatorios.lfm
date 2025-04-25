@@ -271,8 +271,8 @@ object RelatoriosF: TRelatoriosF
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
     DataType = dtDataSet
-    Left = 91
-    Top = 44
+    Left = 16
+    Top = 8
   end
   object frdbOrcItens: TfrDBDataSet
     DataSet = DataModuleF.qryOrcamentoItem
@@ -285,8 +285,8 @@ object RelatoriosF: TRelatoriosF
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
     DataType = dtDataSet
-    Left = 217
-    Top = 44
+    Left = 272
+    Top = 16
   end
   object frdbOrcItens1: TfrDBDataSet
     DataSet = DataModuleF.qryOrcamentoItem
@@ -306,5 +306,15 @@ object RelatoriosF: TRelatoriosF
     DataSet = DataModuleF.qryOrcamentoItem
     Left = 359
     Top = 123
+  end
+  object dsOrcamento: TDataSource
+    DataSet = DataModuleF.qryOrcamento
+    Left = 64
+    Top = 8
+  end
+  object DsOrcamentoItem: TDataSource
+    DataSet = DataModuleF.qryOrcamentoItem
+    Left = 232
+    Top = 8
   end
 end

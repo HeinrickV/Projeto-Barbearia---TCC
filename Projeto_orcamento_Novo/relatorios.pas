@@ -53,9 +53,9 @@ implementation
 
 procedure TRelatoriosF.FormCreate(Sender: TObject);
 begin
-  // Configura conexão com o banco de dados (substitua pelos seus dados)
-  qryOrcamentos.Connection := MinhaConexao; // Sua conexão ZConnection
-  qryOrcItens.Connection := MinhaConexao;
+
+  qryOrcamentos.Connection := ZConnection1;
+  qryOrcItens.Connection := ZConnection1;
 
   // Configura SQL para buscar orçamentos
   qryOrcamentos.SQL.Text :=

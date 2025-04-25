@@ -21,8 +21,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Orcamento"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="229"/>
-        <CursorPos X="63" Y="232"/>
+        <TopLine Value="182"/>
+        <CursorPos X="35" Y="195"/>
         <UsageCount Value="266"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -102,7 +102,6 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Produtos"/>
         <EditorIndex Value="12"/>
-        <TopLine Value="75"/>
         <CursorPos Y="142"/>
         <UsageCount Value="217"/>
         <Loaded Value="True"/>
@@ -199,8 +198,8 @@
         <UnitName Value="Relatorios"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="13"/>
-        <TopLine Value="87"/>
-        <CursorPos Y="117"/>
+        <TopLine Value="108"/>
+        <CursorPos X="41" Y="58"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -251,10 +250,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="datamodule.pas"/>
-        <Caret Line="32" Column="22" TopLine="22"/>
-      </Position>
       <Position>
         <Filename Value="datamodule.pas"/>
         <Caret Line="299" TopLine="276"/>
@@ -370,6 +365,10 @@
       <Position>
         <Filename Value="relatorios.pas"/>
         <Caret Line="116" TopLine="100"/>
+      </Position>
+      <Position>
+        <Filename Value="relatorios.pas"/>
+        <Caret Line="117" TopLine="87"/>
       </Position>
     </JumpHistory>
     <RunParams>
